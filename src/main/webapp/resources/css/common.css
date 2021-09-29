@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/* 
+common color = #606895;
+primary color = #768fd6;
+common trasition animate = cubic-bezier(0.22, 0.61, 0.36, 1);
+ */
+html {
+	scroll-behavior: smooth;
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 간격 및 크기 공통 */
+.m-0 {
+	margin: 0;
+}
+
+.mt-10 {
+	margin-top: 10px;
+}
+
+.mr-10 {
+	margin-right: 10px;
+}
+
+.mb-10 {
+	margin-bottom: 10px;
+}
+
+.ml-10 {
+	margin-left: 10px;
+}
+
+.mtb-10 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.p-0 {
+	padding: 0;
+}
+
+.p-10 {
+	padding: 10px;
+}
+
+.ft-13{
+	font-size:13px;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.flex-2 {
+	flex: 2;
+}
+
+.flex-3 {
+	flex: 3;
+}
+
+.w-la-s {
+	width: 100px;
+}
+
+.h-la-s{
+	height:40px;
+}
+
+
+/* 레이아웃 공통 */
+.default-box {
+	border-radius: 10px;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+}
+
+.flex-base{
+	display: flex;
+}
+
+.flex-center, .flex-center-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flex-center-col {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.ft-center {
+	text-align: center;
+}
+
+.view-component {
+	display: none;
+}
+
+.view-on {
+	display: block;
+}
+
+/* 태그 요소 공통 */
+p {
+	margin: 0;
+}
+
+form {
+	width: 100%;
+}
+
+input,select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid;
+	border-color: #d9d9d9;
+	border-radius: 3px;
+	transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+	outline: 0;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.default-btn,.none-btn {
+	background-color: #fff;
+	border: 2px solid #c8d4e8;
+}
+
+.primary-btn{
+	background-color: #fff;
+	border: 2px solid #768fd6;
+}
+
+.primary-btn-fill{
+	color: #fff;
+	background: #768fd6;
+	border: 2px solid #768fd6;
+}
+
+select:hover, input:hover, button:hover {
+	box-shadow: 0 0 3px 2px #c8d4e8;
+}
+
+input:focus, select:focus {
+	box-shadow: 0 0 3px 2px #9ebae8;
+}
+
+input::placeholder {
+	color: #d9d9d9;
+}
+
+button:active {
+	box-shadow: 0 0 3px 2px #9ebae8;
+	border-color: #9ebae8;
+}
+
+table, table th, table td {
+	border: 1px solid #d9d9d9;
+	border-collapse: collapse;
+}
+
+table th, table td {
+	padding: 5px 10px;
+}
