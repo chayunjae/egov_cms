@@ -4,14 +4,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -29,6 +25,9 @@ public class MainController {
 
 	@Resource(name = "adminService")
 	private AdminService adminService;
+	
+	@Autowired
+	AdminController adminMethod;
 
 	@RequestMapping(value = "/cms", method = RequestMethod.GET)
 	public ModelAndView login(HttpServletRequest request, HttpSession session,
@@ -40,8 +39,6 @@ public class MainController {
 				session.setMaxInactiveInterval(100 * 60);
 				mav.addObject("page_value", "dashboard");
 			} else {
-				System.out.println("==============");
-				System.out.println(page);
 				mav.addObject("page_value", page);
 			}
 			mav.setViewName("admin/main.jsp");
@@ -76,16 +73,5 @@ public class MainController {
 		return new ModelAndView("redirect:/cms");
 	}
 
-	@RequestMapping(value = "/cms/move")
-	public ModelAndView pageAction(@RequestParam("page") String page, @ModelAttribute(value = "USER") AdminVO vo)
-			throws Exception {
-		return new ModelAndView("redirect:/cms/" + page);
-	}
 
-	@ResponseBody
-	@PostMapping(value = "/cms/ajax", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void test(@RequestBody AdminVO test, HttpSession session) throws Exception {
-		System.out.println("=======================");
-		System.out.println(test.toString());
-	}
 }
